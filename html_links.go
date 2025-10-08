@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"net/url"
 	"strings"
 
@@ -85,9 +84,9 @@ func getISelectorAttrFromHTML(htmlBody string, baseURL *url.URL, selector, attr 
 				if err != nil {
 					return
 				}
-				fmt.Println(a.Val, link.String(), baseURL.String())
+				//fmt.Println(a.Val, link.String(), baseURL.String())
 				link = baseURL.ResolveReference(link)
-				fmt.Println(link.String())
+				//fmt.Println(link.String())
 				out = append(out, link.String())
 				return
 			}
