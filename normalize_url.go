@@ -2,6 +2,7 @@ package main
 
 import (
 	"net/url"
+	"strings"
 )
 
 func normalizeURL(URL string) (string, error) {
@@ -10,11 +11,6 @@ func normalizeURL(URL string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	path := norm.EscapedPath()
-	count := 0
-	for path[len(path)-1-count] == '/' {
-		count++
-	}
-	path = path[:len(path)-count]
+	path := strings.TrimRight(norm.EscapedPath(), "/")
 	return norm.Host + path, nil
 }

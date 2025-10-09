@@ -19,6 +19,11 @@ func TestNormalizeURL(t *testing.T) {
 			expected: "blog.boot.dev/path",
 		},
 		{
+			name:     "regular URL",
+			inputURL: "http://blog.boot.dev/",
+			expected: "blog.boot.dev",
+		},
+		{
 			name:     "remove non-secure scheme and trailing slash",
 			inputURL: "http://blog.boot.dev/path/",
 			expected: "blog.boot.dev/path",
@@ -32,6 +37,11 @@ func TestNormalizeURL(t *testing.T) {
 			name:     "remove URL with short path",
 			inputURL: "https://www.4chan.org/b/",
 			expected: "www.4chan.org/b",
+		},
+		{
+			name:     "real URL",
+			inputURL: "https://wagslane.dev/",
+			expected: "wagslane.dev",
 		},
 	}
 
